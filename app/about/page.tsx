@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Card, CardContent } from "@/components/ui/card";
@@ -77,9 +78,11 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-64 shrink-0 bg-muted/50 flex items-center justify-center aspect-square md:aspect-auto md:min-h-[280px] text-muted-foreground">
                   {aboutPage.founder.image ? (
-                    <img
+                    <Image
                       src={aboutPage.founder.image}
                       alt={aboutPage.founder.name}
+                      width={256}
+                      height={280}
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -103,9 +106,11 @@ export default function AboutPage() {
               <div className="flex flex-col md:flex-row">
                 <div className="md:w-64 shrink-0 bg-muted/50 flex items-center justify-center aspect-square md:aspect-auto md:min-h-[280px] text-muted-foreground">
                   {aboutPage.coFounder.image ? (
-                    <img
+                    <Image
                       src={aboutPage.coFounder.image}
                       alt={aboutPage.coFounder.name}
+                      width={256}
+                      height={280}
                       className="w-full h-full object-cover"
                     />
                   ) : (

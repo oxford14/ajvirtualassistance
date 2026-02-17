@@ -1,7 +1,7 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { TaskCategoriesTabs } from "@/components/TaskCategoriesTabs";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { iconMap } from "@/lib/icons";
 import { howItWorksPage } from "@/lib/content";
 
