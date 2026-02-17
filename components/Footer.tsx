@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Linkedin, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { footer } from "@/lib/content";
 
 const socialIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -16,7 +17,7 @@ export function Footer() {
           <div>
             <p className="text-lg font-semibold mb-4">{footer.ctaLine}</p>
             <Button asChild variant="outline" size="lg" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
-              <Link href={footer.ctaButtonHref}>{footer.ctaButtonText}</Link>
+              <BookCtaLink href={footer.ctaButtonHref} asChild>{footer.ctaButtonText}</BookCtaLink>
             </Button>
           </div>
           <div>

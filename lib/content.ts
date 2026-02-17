@@ -28,6 +28,7 @@ export interface NavItem {
 }
 
 export interface HomeHero {
+  tagline?: string;
   headline: string;
   subheadline: string;
   primaryCta: string;
@@ -59,11 +60,12 @@ export const home: {
   finalCta: { title: string; subtitle: string; buttonText: string; buttonHref: string };
 } = {
   hero: {
+    tagline: "Choose your own VA",
     headline: "Scale faster with highly skilled Filipino Virtual Assistants.",
     subheadline:
       "We streamline your operations, boost productivity, and help you scale effectively—so you can focus on what matters most.",
     primaryCta: "Book a Free Consultation",
-    primaryCtaHref: "/contact",
+    primaryCtaHref: "/book",
     secondaryCta: "Explore Services",
     secondaryCtaHref: "/services",
     // Optional: set one of these to add a background. Video takes precedence if both are set.
@@ -129,7 +131,7 @@ export const home: {
     title: "Ready to scale with a dedicated VA?",
     subtitle: "Tell us about your needs and we’ll find the right fit.",
     buttonText: "Get in touch",
-    buttonHref: "/contact",
+    buttonHref: "/book",
   },
 };
 
@@ -466,13 +468,13 @@ We’re proud to work with Filipino talent and to contribute to the local VA eco
     bio: "Driving A&J's mission to connect businesses with exceptional VAs and to mentor the next generation of Filipino virtual assistants.",
     image: "/aj-founder.jpeg",
   },
-  team: [
-    {
-      name: "Placeholder Partner",
-      role: "VA Success & Training",
-      bio: "Overseeing VA recruitment, training, and client matching so every engagement starts and stays strong.",
-    },
-  ],
+  coFounder: {
+    name: "John Paul L. Ruales",
+    role: "Co-Founder",
+    bio: "Building the operational backbone of A&J and ensuring every client–VA partnership is set up for long-term success.",
+    image: "/aj-cofounder.jpeg",
+  },
+  team: [] as { name: string; role: string; bio: string }[],
 };
 
 // ——— TESTIMONIALS ———
@@ -621,7 +623,7 @@ export const contactPage = {
   },
   calendly: {
     buttonText: "Book a free consultation",
-    url: "#", // Replace with Calendly link when ready
+    url: "/book",
   },
   businessInfo: {
     email: "hello@ajvirtualassist.com",
@@ -630,11 +632,24 @@ export const contactPage = {
   },
 };
 
+// ——— BOOK (consultation calendar) ———
+export const bookingPage = {
+  title: "Book a free consultation",
+  subtitle: "Enter your details, then choose a date and time that works for you.",
+  form: {
+    nameLabel: "Name",
+    companyLabel: "Company (optional)",
+    continueButtonText: "Choose date & time",
+  },
+  /** Cal.com booking URL — embedded in iframe on /book. No trailing slash. */
+  calComUrl: "https://cal.com/a-j-virtualassistanceservices-jdsqag/free-consultation",
+};
+
 // ——— FOOTER ———
 export const footer = {
   ctaLine: "Ready to scale with a dedicated VA?",
   ctaButtonText: "Book a free consultation",
-  ctaButtonHref: "/contact",
+  ctaButtonHref: "/book",
   quickLinks: [
     { label: "Services", href: "/services" },
     { label: "How It Works", href: "/how-it-works" },
@@ -686,6 +701,11 @@ export const seo = {
     title: "Contact",
     description:
       "Get in touch for a free consultation. We’ll match you with the right VA for your needs.",
+  },
+  book: {
+    title: "Book a consultation",
+    description:
+      "Book a free consultation. Enter your name and company, then pick a time on the calendar.",
   },
   apply: {
     title: "Apply as a VA",

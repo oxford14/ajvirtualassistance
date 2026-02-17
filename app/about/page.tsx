@@ -96,20 +96,48 @@ export default function AboutPage() {
           </Card>
         </section>
 
-        <section>
-          <h2 className="text-2xl font-semibold text-primary mb-8">Team</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {aboutPage.team.map((member) => (
-              <Card key={member.name} className="border-accent/20">
-                <CardContent className="pt-6">
-                  <h3 className="text-lg font-semibold text-primary">{member.name}</h3>
-                  <p className="text-accent font-medium text-sm mb-2">{member.role}</p>
-                  <p className="text-primary/80 text-sm">{member.bio}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+        <section className="mb-16">
+          <h2 className="text-2xl font-semibold text-primary mb-8">Co-Founder</h2>
+          <Card className="border-accent/20 overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-64 shrink-0 bg-muted/50 flex items-center justify-center aspect-square md:aspect-auto md:min-h-[280px] text-muted-foreground">
+                  {aboutPage.coFounder.image ? (
+                    <img
+                      src={aboutPage.coFounder.image}
+                      alt={aboutPage.coFounder.name}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-sm text-muted-foreground">Photo coming soon</span>
+                  )}
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-center">
+                  <h3 className="text-xl font-semibold text-primary">{aboutPage.coFounder.name}</h3>
+                  <p className="text-accent font-medium text-sm mb-2">{aboutPage.coFounder.role}</p>
+                  <p className="text-primary/80">{aboutPage.coFounder.bio}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </section>
+
+        {aboutPage.team.length > 0 && (
+          <section>
+            <h2 className="text-2xl font-semibold text-primary mb-8">Team</h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {aboutPage.team.map((member) => (
+                <Card key={member.name} className="border-accent/20">
+                  <CardContent className="pt-6">
+                    <h3 className="text-lg font-semibold text-primary">{member.name}</h3>
+                    <p className="text-accent font-medium text-sm mb-2">{member.role}</p>
+                    <p className="text-primary/80 text-sm">{member.bio}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

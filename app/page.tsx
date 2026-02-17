@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FeatureCard } from "@/components/FeatureCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -50,28 +51,37 @@ export default function HomePage() {
         <div
           className={`container relative z-10 mx-auto max-w-4xl text-center ${home.hero.backgroundImage || home.hero.backgroundVideo ? "text-white" : ""}`}
         >
-          <AnimateIn animation="fade-in-up">
+          {home.hero.tagline && (
+            <AnimateIn animation="fade-in-up">
+              <p
+                className={`inline-block text-sm md:text-base font-semibold uppercase tracking-widest mb-4 px-4 py-1.5 rounded-full border ${home.hero.backgroundImage || home.hero.backgroundVideo ? "text-white/90 border-white/30 bg-white/10 backdrop-blur-sm" : "text-accent border-accent/30 bg-accent/10"}`}
+              >
+                {home.hero.tagline}
+              </p>
+            </AnimateIn>
+          )}
+          <AnimateIn animation="fade-in-up" delay={100}>
             <h1
               className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${home.hero.backgroundImage || home.hero.backgroundVideo ? "text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]" : "text-primary drop-shadow-sm"}`}
             >
               {home.hero.headline}
             </h1>
           </AnimateIn>
-          <AnimateIn animation="fade-in-up" delay={150}>
+          <AnimateIn animation="fade-in-up" delay={200}>
             <p
               className={`text-xl md:text-2xl mb-10 max-w-2xl mx-auto ${home.hero.backgroundImage || home.hero.backgroundVideo ? "text-white/95 [text-shadow:0_1px_8px_rgba(0,0,0,0.5)]" : "text-primary/80 drop-shadow-sm"}`}
             >
               {home.hero.subheadline}
             </p>
           </AnimateIn>
-          <AnimateIn animation="fade-in-up" delay={300}>
+          <AnimateIn animation="fade-in-up" delay={350}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
                 size="lg"
                 className={home.hero.backgroundImage || home.hero.backgroundVideo ? "text-base bg-white text-primary border-0 hover:bg-white/90" : "text-base"}
               >
-                <Link href={home.hero.primaryCtaHref}>{home.hero.primaryCta}</Link>
+                <BookCtaLink href={home.hero.primaryCtaHref} asChild>{home.hero.primaryCta}</BookCtaLink>
               </Button>
               <Button
                 asChild

@@ -40,7 +40,7 @@ export function AnimateIn({
   once = true,
   as: Tag = "div",
 }: AnimateInProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -67,7 +67,7 @@ export function AnimateIn({
 
   return (
     <Tag
-      ref={ref as React.RefObject<HTMLDivElement>}
+      ref={ref as never}
       className={cn(visible && animationClasses[animation], className)}
       style={style}
     >

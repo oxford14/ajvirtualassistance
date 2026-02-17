@@ -5,15 +5,13 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { navItems } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const consultationItem = navItems.find((item) => item.label === "Contact");
-  const consultationHref = consultationItem?.href ?? "/contact";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-accent/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 animate-fade-in-down">
@@ -47,7 +45,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <Button asChild>
-            <Link href={consultationHref}>Book a Free Consultation</Link>
+            <BookCtaLink href="/book" asChild>Book a Free Consultation</BookCtaLink>
           </Button>
         </div>
 
@@ -87,9 +85,9 @@ export function Header() {
             })}
             <div className="pt-2 mt-2 border-t border-accent/20">
               <Button asChild className="w-full">
-                <Link href={consultationHref} onClick={() => setMobileOpen(false)}>
+                <BookCtaLink href="/book" asChild onClick={() => setMobileOpen(false)}>
                   Book a Free Consultation
-                </Link>
+                </BookCtaLink>
               </Button>
             </div>
           </nav>

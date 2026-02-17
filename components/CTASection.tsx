@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { AnimateIn } from "@/components/AnimateIn";
 import { cn } from "@/lib/utils";
 
@@ -51,7 +54,7 @@ export function CTASection({
         )}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button asChild size="lg">
-            <Link href={primaryButton.href}>{primaryButton.text}</Link>
+            <BookCtaLink href={primaryButton.href} asChild>{primaryButton.text}</BookCtaLink>
           </Button>
           {secondaryButton && (
             <Button asChild variant="outline" size="lg">

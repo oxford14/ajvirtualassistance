@@ -1,9 +1,9 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { contactPage } from "@/lib/content";
-
 import { seo } from "@/lib/content";
 
 export const metadata = {
@@ -24,7 +24,7 @@ export default function ContactPage() {
 
         <div className="mb-10">
           <Button asChild size="lg">
-            <a href={calendly.url}>{calendly.buttonText}</a>
+            <BookCtaLink href={calendly.url} asChild>{calendly.buttonText}</BookCtaLink>
           </Button>
         </div>
 
