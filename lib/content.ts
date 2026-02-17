@@ -20,7 +20,8 @@ export type IconKey =
   | "calendar"
   | "file-text"
   | "layout"
-  | "bar-chart";
+  | "bar-chart"
+  | "stethoscope";
 
 export interface NavItem {
   label: string;
@@ -74,6 +75,11 @@ export const home: {
   },
   trustRow: ["Reliable", "Trained", "Confidential", "Long-term"],
   servicesOverview: [
+    {
+      title: "Medical Virtual Assistant",
+      description: "Patient scheduling, medical transcription, billing support, and EHR management for healthcare professionals.",
+      icon: "stethoscope" as IconKey,
+    },
     {
       title: "Admin & Executive Support",
       description: "Calendar management, email handling, travel arrangements, and day-to-day operations.",
@@ -140,6 +146,32 @@ export const servicesPage = {
   title: "Services",
   subtitle: "We offer flexible support across the areas that matter most to growing teams.",
   categories: [
+    {
+      title: "Medical Virtual Assistant",
+      shortDescription: "Specialized support for healthcare professionals and medical practices.",
+      icon: "stethoscope" as IconKey,
+      included: [
+        "Medical transcription and documentation",
+        "Patient scheduling and appointment management",
+        "Insurance verification and pre-authorization",
+        "Medical billing and coding support",
+        "Electronic Health Records (EHR/EMR) management",
+        "Patient intake and follow-up coordination",
+        "Referral management and tracking",
+        "HIPAA-compliant administrative support",
+      ],
+      bestFor: "Doctors, dentists, clinics, telehealth providers, and healthcare businesses who need reliable, detail-oriented administrative support.",
+      sampleTasks: [
+        "Schedule and confirm patient appointments",
+        "Transcribe medical notes and reports",
+        "Verify patient insurance and eligibility",
+        "Manage EHR/EMR data entry and updates",
+        "Process and follow up on medical billing claims",
+        "Coordinate patient referrals and authorizations",
+        "Handle patient inquiries and appointment reminders",
+        "Organize and maintain medical records",
+      ],
+    },
     {
       title: "Admin & Executive Support",
       shortDescription: "Keep operations running smoothly so you can focus on strategy.",
@@ -270,6 +302,19 @@ export const servicesPage = {
       note: "Let’s tailor this to your needs.",
     },
   ],
+  customVA: {
+    title: "Need a different type of VA?",
+    description:
+      "Don’t see the exact niche you’re looking for? No problem. We can source and match you with a Virtual Assistant tailored to your specific business needs—whether it’s real estate, legal, insurance, tech support, project management, or any other field. Just tell us what you need, and we’ll find the right talent for you.",
+    cta: "Request a Custom VA",
+    ctaHref: "/book",
+    highlights: [
+      "Tell us the role, tasks, and skills you need",
+      "We’ll source and vet candidates from our talent pool",
+      "Get matched with a VA trained for your industry",
+      "Full onboarding and ongoing support included",
+    ],
+  },
 };
 
 // ——— HOW IT WORKS ———
@@ -675,7 +720,7 @@ export const seo = {
   services: {
     title: "Services",
     description:
-      "Admin support, customer support, social media, lead generation, bookkeeping, and e-commerce support. Flexible packages for every stage of growth.",
+      "Medical VA, admin support, customer support, social media, lead generation, bookkeeping, e-commerce support, and custom VA solutions. Flexible packages for every stage of growth.",
   },
   howItWorks: {
     title: "How It Works",

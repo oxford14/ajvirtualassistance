@@ -1,7 +1,10 @@
 import { SectionHeading } from "@/components/SectionHeading";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { BookCtaLink } from "@/components/BookCtaLink";
 import { iconMap } from "@/lib/icons";
 import { servicesPage } from "@/lib/content";
+import { CheckCircle, Users } from "lucide-react";
 
 import { seo } from "@/lib/content";
 
@@ -63,6 +66,36 @@ export default function ServicesPage() {
             );
           })}
         </div>
+
+        {/* Custom VA Request Section */}
+        <section className="mt-20 pt-16 border-t border-accent/20">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="flex justify-center mb-6">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-accent/15 text-accent">
+                <Users className="h-8 w-8" aria-hidden />
+              </div>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-primary mb-4">
+              {servicesPage.customVA.title}
+            </h2>
+            <p className="text-primary/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+              {servicesPage.customVA.description}
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4 text-left max-w-lg mx-auto mb-10">
+              {servicesPage.customVA.highlights.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-accent shrink-0 mt-0.5" aria-hidden />
+                  <span className="text-primary/90 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+            <Button asChild size="lg">
+              <BookCtaLink href={servicesPage.customVA.ctaHref} asChild>
+                {servicesPage.customVA.cta}
+              </BookCtaLink>
+            </Button>
+          </div>
+        </section>
 
         <section className="mt-20 pt-16 border-t border-accent/20">
           <h2 className="text-2xl md:text-3xl font-semibold text-primary text-center mb-10">

@@ -19,6 +19,7 @@ import {
   FileText,
   Layout,
   BarChart3,
+  Stethoscope,
   LucideIcon,
 } from "lucide-react";
 import type { IconKey } from "./content";
@@ -44,4 +45,5 @@ export const iconMap: Record<IconKey, LucideIcon> = {
   "file-text": FileText,
   layout: Layout,
   "bar-chart": BarChart3,
+  stethoscope: Stethoscope,
 };
