@@ -20,6 +20,12 @@ import {
   Layout,
   BarChart3,
   Stethoscope,
+  DollarSign,
+  UserX,
+  Search,
+  BadgePercent,
+  Clock,
+  UserCheck,
   LucideIcon,
 } from "lucide-react";
 import type { IconKey } from "./content";
@@ -46,4 +52,10 @@ export const iconMap: Record<IconKey, LucideIcon> = {
   layout: Layout,
   "bar-chart": BarChart3,
   stethoscope: Stethoscope,
+  "dollar-sign": DollarSign,
+  "user-x": UserX,
+  search: Search,
+  "badge-percent": BadgePercent,
+  clock: Clock,
+  "user-check": UserCheck,
 };

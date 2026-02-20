@@ -4,13 +4,17 @@ import { Button } from "@/components/ui/button";
 import { BookCtaLink } from "@/components/BookCtaLink";
 import { SectionHeading } from "@/components/SectionHeading";
 import { FeatureCard } from "@/components/FeatureCard";
+import { HighlightCard } from "@/components/HighlightCard";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { CTASection } from "@/components/CTASection";
 import { AnimateIn } from "@/components/AnimateIn";
+import { Phone, Users, UserCheck, Rocket } from "lucide-react";
 import {
   home,
   testimonials,
 } from "@/lib/content";
+
+const howItWorksIcons = [Phone, Users, UserCheck, Rocket];
 
 export default function HomePage() {
   const featured = home.featuredTestimonials.map((i) => testimonials[i - 1]).filter(Boolean);
@@ -105,6 +109,65 @@ export default function HomePage() {
         </AnimateIn>
       </section>
 
+      {/* Staffing Crisis — pain points */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-primary">
+        <div className="container mx-auto">
+          <AnimateIn animation="fade-in-up">
+            <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+              <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">
+                {home.staffingCrisis.title}
+              </h2>
+              {home.staffingCrisis.subtitle && (
+                <p className="text-lg text-white/75 leading-relaxed">
+                  {home.staffingCrisis.subtitle}
+                </p>
+              )}
+            </div>
+          </AnimateIn>
+          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+            {home.staffingCrisis.cards.map((card, i) => (
+              <AnimateIn key={card.title} animation="fade-in-up" delay={(i + 1) * 150}>
+                <HighlightCard
+                  title={card.title}
+                  description={card.description}
+                  icon={card.icon}
+                  variant="problem"
+                />
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Professional VAs — solutions */}
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-background-muted">
+        <div className="container mx-auto">
+          <AnimateIn animation="fade-in-up">
+            <SectionHeading
+              title={home.professionalVAs.title}
+              subtitle={home.professionalVAs.subtitle}
+            />
+          </AnimateIn>
+          <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+            {home.professionalVAs.cards.map((card, i) => (
+              <AnimateIn key={card.title} animation="fade-in-up" delay={(i + 1) * 150}>
+                <HighlightCard
+                  title={card.title}
+                  description={card.description}
+                  icon={card.icon}
+                  variant="solution"
+                />
+              </AnimateIn>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Button asChild size="lg">
+              <BookCtaLink href="/book" asChild>Book a Free Consultation</BookCtaLink>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Services overview */}
       <section className="py-16 md:py-24 px-4 md:px-6">
         <div className="container mx-auto">
@@ -135,27 +198,78 @@ export default function HomePage() {
 
       {/* How it works summary */}
       <section className="py-16 md:py-24 px-4 md:px-6 bg-background-muted">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-4xl">
           <AnimateIn animation="fade-in-up">
             <SectionHeading
               title="How it works"
-              subtitle="A simple process to get you the right VA and keep everything running smoothly."
+              subtitle="From first call to fully onboarded — here's how simple hiring your VA really is."
             />
           </AnimateIn>
-          <div className="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto">
-            {home.howItWorksSteps.map((step, i) => (
-              <AnimateIn key={step.title} animation="scale-in" delay={i * 150}>
-                <div className="text-center">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground font-semibold mb-4 transition-transform duration-300 hover:scale-110">
-                    {i + 1}
-                  </span>
-                  <h3 className="text-lg font-semibold text-primary mb-2">{step.title}</h3>
-                  <p className="text-primary/80 text-sm">{step.description}</p>
-                </div>
-              </AnimateIn>
-            ))}
+
+          <div className="relative">
+            {/* Vertical connector line (desktop) */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-accent/30 -translate-x-1/2" aria-hidden />
+
+            <div className="space-y-10 md:space-y-0">
+              {home.howItWorksSteps.map((step, i) => {
+                const Icon = howItWorksIcons[i];
+                const isEven = i % 2 === 0;
+                return (
+                  <AnimateIn key={step.title} animation="fade-in-up" delay={i * 150}>
+                    <div className="relative md:flex md:items-start md:gap-8 md:py-6">
+                      {/* Timeline circle */}
+                      <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold text-lg shadow-lg ring-4 ring-background-muted">
+                        {i + 1}
+                      </div>
+
+                      {/* Left content (even) */}
+                      <div className={`hidden md:block md:w-1/2 ${isEven ? "md:pr-14 md:text-right" : "md:pr-14"}`}>
+                        {isEven && (
+                          <div>
+                            <div className="flex items-center gap-2.5 justify-end mb-1.5">
+                              <h3 className="text-lg font-semibold text-primary">{step.title}</h3>
+                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                            </div>
+                            <p className="text-primary/80 text-sm leading-relaxed">{step.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Right content (odd) */}
+                      <div className={`hidden md:block md:w-1/2 ${!isEven ? "md:pl-14" : "md:pl-14"}`}>
+                        {!isEven && (
+                          <div>
+                            <div className="flex items-center gap-2.5 mb-1.5">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-accent">
+                                <Icon className="h-4 w-4" />
+                              </div>
+                              <h3 className="text-lg font-semibold text-primary">{step.title}</h3>
+                            </div>
+                            <p className="text-primary/80 text-sm leading-relaxed">{step.description}</p>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Mobile layout */}
+                      <div className="md:hidden flex items-start gap-4">
+                        <div className="flex-shrink-0 flex h-11 w-11 items-center justify-center rounded-full bg-accent text-accent-foreground font-bold shadow-md">
+                          {i + 1}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold text-primary mb-1">{step.title}</h3>
+                          <p className="text-primary/80 text-sm leading-relaxed">{step.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </AnimateIn>
+                );
+              })}
+            </div>
           </div>
-          <div className="text-center mt-10">
+
+          <div className="text-center mt-12">
             <Button asChild variant="outline" size="lg">
               <Link href="/how-it-works">Learn more</Link>
             </Button>

@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   },
   description:
     "Scale faster with highly skilled Filipino Virtual Assistants. We streamline operations, boost productivity, and help you grow—while mentoring aspiring VAs.",
+  icons: {
+    icon: "/aandj-logo.jpeg",
+    apple: "/aandj-logo.jpeg",
+  },
   openGraph: {
     title: "A&J Virtual Assistance Services | Filipino Virtual Assistants",
     description:

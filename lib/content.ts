@@ -21,7 +21,13 @@ export type IconKey =
   | "file-text"
   | "layout"
   | "bar-chart"
-  | "stethoscope";
+  | "stethoscope"
+  | "dollar-sign"
+  | "user-x"
+  | "search"
+  | "badge-percent"
+  | "clock"
+  | "user-check";
 
 export interface NavItem {
   label: string;
@@ -51,9 +57,23 @@ export const navItems: NavItem[] = [
 ];
 
 // ——— HOME ———
+export interface HighlightCard {
+  title: string;
+  description: string;
+  icon: IconKey;
+}
+
+export interface HighlightSection {
+  title: string;
+  subtitle?: string;
+  cards: HighlightCard[];
+}
+
 export const home: {
   hero: HomeHero;
   trustRow: string[];
+  staffingCrisis: HighlightSection;
+  professionalVAs: HighlightSection;
   servicesOverview: { title: string; description: string; icon: IconKey }[];
   howItWorksSteps: { title: string; description: string }[];
   missionBanner: { title: string; description: string; cta: string; ctaHref: string };
@@ -64,7 +84,7 @@ export const home: {
     tagline: "Choose your own VA",
     headline: "Scale faster with highly skilled Filipino Virtual Assistants.",
     subheadline:
-      "We streamline your operations, boost productivity, and help you scale effectively—so you can focus on what matters most.",
+      "We streamline your operations, boost productivity, and help you scale effectively\u2014so you can focus on what matters most.",
     primaryCta: "Book a Free Consultation",
     primaryCtaHref: "/book",
     secondaryCta: "Explore Services",
@@ -74,6 +94,57 @@ export const home: {
     // backgroundVideo: "/hero-bg.mp4",
   },
   trustRow: ["Reliable", "Trained", "Confidential", "Long-term"],
+
+  staffingCrisis: {
+    title: "The Front Desk Staffing Crisis Is Real",
+    subtitle: "Businesses everywhere are struggling with the same staffing pain points.",
+    cards: [
+      {
+        title: "High Costs",
+        description:
+          "Paying $3,000\u20134,000/month for unreliable part-time help that barely covers your needs.",
+        icon: "dollar-sign" as IconKey,
+      },
+      {
+        title: "Unreliable Staff",
+        description:
+          "Constant call-outs and no-shows disrupting your operations and client experience.",
+        icon: "user-x" as IconKey,
+      },
+      {
+        title: "Hiring Challenges",
+        description:
+          "Can\u2019t find qualified candidates willing to handle front desk and administrative tasks.",
+        icon: "search" as IconKey,
+      },
+    ],
+  },
+
+  professionalVAs: {
+    title: "Professional Medical VAs at Half the Cost",
+    subtitle: "Get dedicated, skilled support without breaking the bank.",
+    cards: [
+      {
+        title: "60% Cost Savings",
+        description:
+          "Full-time dedicated VA support starting at a fraction of local hiring costs.",
+        icon: "badge-percent" as IconKey,
+      },
+      {
+        title: "Trained & Professional",
+        description:
+          "Pre-vetted VAs with proven skills, ready to integrate with your workflows from day one.",
+        icon: "user-check" as IconKey,
+      },
+      {
+        title: "Reliable Coverage",
+        description:
+          "Backup VAs included\u2014no call-outs, no gaps, no disruptions to your business.",
+        icon: "clock" as IconKey,
+      },
+    ],
+  },
+
   servicesOverview: [
     {
       title: "Medical Virtual Assistant",
@@ -113,16 +184,20 @@ export const home: {
   ],
   howItWorksSteps: [
     {
-      title: "Discovery & matching",
-      description: "We learn your needs and match you with a VA whose skills and experience fit.",
+      title: "Discovery Call",
+      description: "We learn about your business, pain points, and what you need in a VA.",
     },
     {
-      title: "Onboarding & tools",
-      description: "We set up communication, workflows, and tools so your VA can start strong.",
+      title: "Candidate Matching",
+      description: "We interview and vet candidates based on experience and role fit—no generic tests.",
     },
     {
-      title: "Ongoing support",
-      description: "Regular check-ins and performance reviews keep everything on track.",
+      title: "You Choose Your VA",
+      description: "Review matched candidates and select the VA that fits your team best.",
+    },
+    {
+      title: "Onboarding",
+      description: "Your VA is trained directly by you for seamless integration into your systems.",
     },
   ],
   missionBanner: {
@@ -135,7 +210,7 @@ export const home: {
   featuredTestimonials: [1, 2, 3], // indices into testimonials list
   finalCta: {
     title: "Ready to scale with a dedicated VA?",
-    subtitle: "Tell us about your needs and we’ll find the right fit.",
+    subtitle: "Tell us about your needs and we\u2019ll find the right fit.",
     buttonText: "Get in touch",
     buttonHref: "/book",
   },
@@ -285,32 +360,32 @@ export const servicesPage = {
   packages: [
     {
       name: "Starter",
-      hoursOrRole: "10–20 hours/week or part-time role",
+      hoursOrRole: "10\u201320 hours/week or part-time role",
       bestFor: "Solopreneurs and small teams testing VA support.",
-      note: "Let’s tailor this to your needs.",
+      note: "Let\u2019s tailor this to your needs.",
     },
     {
       name: "Growth",
-      hoursOrRole: "20–40 hours/week or dedicated VA",
+      hoursOrRole: "20\u201340 hours/week or dedicated VA",
       bestFor: "Growing businesses ready for consistent, dedicated support.",
-      note: "Let’s tailor this to your needs.",
+      note: "Let\u2019s tailor this to your needs.",
     },
     {
       name: "Scale",
       hoursOrRole: "40+ hours or multiple VAs",
       bestFor: "Teams scaling operations and need coverage across functions.",
-      note: "Let’s tailor this to your needs.",
+      note: "Let\u2019s tailor this to your needs.",
     },
   ],
   customVA: {
     title: "Need a different type of VA?",
     description:
-      "Don’t see the exact niche you’re looking for? No problem. We can source and match you with a Virtual Assistant tailored to your specific business needs—whether it’s real estate, legal, insurance, tech support, project management, or any other field. Just tell us what you need, and we’ll find the right talent for you.",
+      "Don\u2019t see the exact niche you\u2019re looking for? No problem. We can source and match you with a Virtual Assistant tailored to your specific business needs\u2014whether it\u2019s real estate, legal, insurance, tech support, project management, or any other field. Just tell us what you need, and we\u2019ll find the right talent for you.",
     cta: "Request a Custom VA",
     ctaHref: "/book",
     highlights: [
       "Tell us the role, tasks, and skills you need",
-      "We’ll source and vet candidates from our talent pool",
+      "We\u2019ll source and vet candidates from our talent pool",
       "Get matched with a VA trained for your industry",
       "Full onboarding and ongoing support included",
     ],
@@ -319,34 +394,38 @@ export const servicesPage = {
 
 // ——— HOW IT WORKS ———
 export const howItWorksPage = {
-  title: "How Virtual Assistance Works",
-  subtitle: "What a VA is, how we work with you, and what to expect.",
+  title: "How It Works",
+  subtitle: "From first call to fully onboarded \u2014 here\u2019s how simple hiring your VA really is.",
   whatIsVA: {
     title: "What is a Virtual Assistant?",
-    content: `A Virtual Assistant (VA) is a skilled professional who works remotely to support your business—handling administrative, creative, or operational tasks so you can focus on growth and strategy. VAs can manage calendars, email, customer support, social media, lead generation, bookkeeping, and more, depending on your needs.
+    content: `A Virtual Assistant (VA) is a skilled professional who works remotely to support your business\u2014handling administrative, creative, or operational tasks so you can focus on growth and strategy. VAs can manage calendars, email, customer support, social media, lead generation, bookkeeping, and more, depending on your needs.
 
 At A&J, our VAs are based in the Philippines and are trained in communication, tools, and best practices. We match you with someone whose skills and experience align with your goals, then support both of you with clear processes and ongoing check-ins.`,
   },
   steps: [
     {
-      title: "Discovery call & needs assessment",
+      title: "Discovery Call",
       description:
-        "We learn about your business, pain points, and what success looks like. This helps us define the role and match you with the right VA.",
+        "We start with a free consultation to understand your business, your pain points, and the type of support you need. This helps us define the ideal VA profile for your role \u2014 so we\u2019re not guessing, we\u2019re targeting.",
+      highlight: "No commitment required. Just a conversation.",
     },
     {
-      title: "VA matching & onboarding",
+      title: "Candidate Matching",
       description:
-        "We introduce you to your VA and align on responsibilities, hours, and communication. We handle contracts and expectations so everyone starts on the same page.",
+        "We conduct structured interviews focused on real experience and role alignment. We evaluate communication skills, relevant background, and cultural fit \u2014 not generic typing tests or cookie-cutter assessments. This keeps the process fast while maintaining quality.",
+      highlight: "No generic tests. No wasted time. Just qualified candidates.",
     },
     {
-      title: "Tools & workflows setup",
+      title: "Client Interview & Selection",
       description:
-        "We set up the tools you use (email, project management, CRM, etc.) and document workflows so your VA can work effectively from day one.",
+        "We present you with pre-vetted candidates that match your needs. You interview them, ask your questions, and choose the VA you feel most confident about. It\u2019s your team \u2014 you make the final call.",
+      highlight: "Choose your own VA. It\u2019s your call.",
     },
     {
-      title: "Ongoing management & performance check-ins",
+      title: "Onboarding",
       description:
-        "We stay in the loop with regular check-ins and performance reviews. If anything needs to change, we adjust quickly.",
+        "Once you\u2019ve selected your VA, training is conducted directly by you to ensure seamless integration into your systems, tools, and workflows. We support the transition and stay available for check-ins to make sure everything runs smoothly.",
+      highlight: "Your VA learns your way of doing things \u2014 from day one.",
     },
   ],
   taskCategories: {
@@ -414,7 +493,7 @@ At A&J, our VAs are based in the Philippines and are trained in communication, t
     {
       question: "How does pricing work?",
       answer:
-        "We offer flexible arrangements based on hours per week or dedicated roles. Pricing depends on scope, complexity, and level of experience. Book a free consultation and we’ll provide a tailored proposal.",
+        "We offer flexible arrangements based on hours per week or dedicated roles. Pricing depends on scope, complexity, and level of experience. Book a free consultation and we\u2019ll provide a tailored proposal.",
     },
     {
       question: "How do you ensure confidentiality?",
@@ -432,14 +511,14 @@ At A&J, our VAs are based in the Philippines and are trained in communication, t
         "Yes. We train on communication, tools, and best practices. For your specific workflows, we document processes during onboarding and support ongoing learning as needed.",
     },
     {
-      question: "What if the VA isn’t a good fit?",
+      question: "What if the VA isn\u2019t a good fit?",
       answer:
-        "We want you to have the right fit. If something isn’t working, we’ll work with you to adjust responsibilities or, if needed, match you with a different VA. We don’t leave you stuck.",
+        "We want you to have the right fit. If something isn\u2019t working, we\u2019ll work with you to adjust responsibilities or, if needed, match you with a different VA. We don\u2019t leave you stuck.",
     },
     {
       question: "How does day-to-day communication work?",
       answer:
-        "We use the tools you prefer—email, Slack, Asana, etc. We agree on response times and check-in rhythms during onboarding so expectations are clear.",
+        "We use the tools you prefer\u2014email, Slack, Asana, etc. We agree on response times and check-in rhythms during onboarding so expectations are clear.",
     },
     {
       question: "Can I hire the VA full-time later?",
@@ -447,9 +526,9 @@ At A&J, our VAs are based in the Philippines and are trained in communication, t
         "Many clients start with part-time and scale up. We can discuss moving to a dedicated or full-time arrangement as your needs grow.",
     },
     {
-      question: "What’s the typical onboarding timeline?",
+      question: "What\u2019s the typical onboarding timeline?",
       answer:
-        "From signed agreement to your VA starting, we aim for 1–2 weeks. This includes matching, intro calls, tool access, and workflow documentation.",
+        "From signed agreement to your VA starting, we aim for 1\u20132 weeks. This includes matching, intro calls, tool access, and workflow documentation.",
     },
   ],
 };
@@ -457,22 +536,26 @@ At A&J, our VAs are based in the Philippines and are trained in communication, t
 // ——— ABOUT ———
 export const aboutPage = {
   title: "About Us",
-  subtitle: "Why we exist and what we stand for.",
+  subtitle: "Two dreamers on a mission to transform businesses and careers through Virtual Assistance.",
   story: {
-    title: "Our story",
-    content: `A&J Virtual Assistance Services was founded to connect businesses with highly skilled Virtual Assistants while creating real opportunities for talented professionals in the Philippines. We saw a need for reliable, well-trained remote support that doesn’t feel like a compromise—and a need for pathways into the VA profession that are built on mentorship and integrity.
+    title: "Our Story",
+    content: `Our journey began like that of many dreamers\u2014two dedicated, hardworking professionals striving for success while juggling demanding corporate jobs, limited income, and raising children. We knew that achieving our goals would require more than perseverance; it would demand creativity, resilience, and a willingness to embrace new opportunities.
 
-Today we focus on two things: delivering excellent VA support so our clients can scale with confidence, and nurturing the next generation of Filipino VAs through training and opportunity.`,
+That opportunity came in the form of Virtual Assistance. Entering this field was both exciting and challenging. We underwent rigorous training across multiple departments and faced what many call a \u201Cthrown-to-the-wolves\u201D experience. These early challenges tested our skills, patience, and determination, but they also taught us valuable lessons about adaptability, problem-solving, and professional growth.
+
+Through every challenge, we relied on hard work, a clear vision, and a commitment to making a difference\u2014not just for ourselves, but for others who needed reliable support in building their businesses. We are also passionate about helping fellow Virtual Assistants and aspiring VAs by providing opportunities to grow, learn, and transform their careers through meaningful work.
+
+Today, we specialize in connecting businesses with highly skilled Virtual Assistants (VAs) through a streamlined, cost-efficient recruitment model. Our mission is to deliver pre-vetted, job-ready candidates tailored to your unique needs, ensuring that your business gains the talent it requires while keeping the hiring process simple, efficient, and affordable. With our expertise, dedication, and people-first approach, we aim to make a measurable difference in the success of your business and the careers of those we support.`,
   },
   mission: {
-    title: "Mission",
+    title: "Our Mission",
     content:
-      "To provide businesses with outstanding virtual assistance while mentoring aspiring Filipino Virtual Assistants and giving them the tools and opportunities to succeed.",
+      "To connect businesses with highly skilled, carefully screened Virtual Assistants through a streamlined, cost-efficient recruitment model that makes hiring simple, transparent, and affordable. We deliver job-ready talent tailored to each client\u2019s needs while creating meaningful opportunities that empower Virtual Assistants to build sustainable and life-changing remote careers.",
   },
   vision: {
-    title: "Vision",
+    title: "Our Vision",
     content:
-      "A world where every business can access skilled remote support, and every motivated VA has a clear path to growth—built on trust, quality, and mutual respect.",
+      "To become a trusted partner for businesses worldwide by building a reliable network of exceptional Virtual Assistants known for professionalism, adaptability, and excellence. We envision a future where companies grow confidently with the right support, and Virtual Assistants are given fair opportunities, proper guidance, and the chance to build stable, fulfilling careers\u2014creating success stories for both clients and professionals alike.",
   },
   values: [
     {
@@ -492,31 +575,31 @@ Today we focus on two things: delivering excellent VA support so our clients can
     },
     {
       title: "Growth",
-      description: "We invest in our VAs’ development and our clients’ success.",
+      description: "We invest in our VAs\u2019 development and our clients\u2019 success.",
       icon: "trending-up" as IconKey,
     },
     {
       title: "Care",
-      description: "We care about people—our clients, our VAs, and the communities we serve.",
+      description: "We care about people\u2014our clients, our VAs, and the communities we serve.",
       icon: "heart" as IconKey,
     },
   ],
   whyFilipinoVAs: {
     title: "Why Filipino VAs?",
-    content: `The Philippines has a strong tradition of skilled, English-proficient professionals who excel in customer service, administration, and remote collaboration. Many of our VAs have experience in BPO, executive support, and digital roles—and they bring reliability, adaptability, and a strong work ethic.
+    content: `The Philippines has a strong tradition of skilled, English-proficient professionals who excel in customer service, administration, and remote collaboration. Many of our VAs have experience in BPO, executive support, and digital roles\u2014and they bring reliability, adaptability, and a strong work ethic.
 
-We’re proud to work with Filipino talent and to contribute to the local VA ecosystem through training and fair opportunity. When you work with A&J, you get capable support and you support a mission that matters.`,
+We\u2019re proud to work with Filipino talent and to contribute to the local VA ecosystem through training and fair opportunity. When you work with A&J, you get capable support and you support a mission that matters.`,
   },
   founder: {
     name: "Aiza C. Seno",
     role: "Founder",
-    bio: "Driving A&J's mission to connect businesses with exceptional VAs and to mentor the next generation of Filipino virtual assistants.",
+    bio: "Driving A&J\u2019s mission to connect businesses with exceptional VAs and to mentor the next generation of Filipino virtual assistants.",
     image: "/aj-founder.jpeg",
   },
   coFounder: {
     name: "John Paul L. Ruales",
     role: "Co-Founder",
-    bio: "Building the operational backbone of A&J and ensuring every client–VA partnership is set up for long-term success.",
+    bio: "Building the operational backbone of A&J and ensuring every client\u2013VA partnership is set up for long-term success.",
     image: "/aj-cofounder.jpeg",
   },
   team: [] as { name: string; role: string; bio: string }[],
@@ -607,7 +690,7 @@ export const caseSnapshots: CaseSnapshot[] = [
     outcome: "Response times improved sharply and customer satisfaction scores went up. The owner could focus on product and marketing instead of daily ops.",
   },
   {
-    challenge: "A small agency needed consistent social media and basic bookkeeping but couldn’t justify full-time hires.",
+    challenge: "A small agency needed consistent social media and basic bookkeeping but couldn\u2019t justify full-time hires.",
     solution: "We set up a single VA with split responsibilities: content scheduling, engagement, and expense categorization in their existing tools.",
     outcome: "Social presence stayed consistent and books stayed organized. The agency grew without adding overhead.",
   },
@@ -617,7 +700,7 @@ export const caseSnapshots: CaseSnapshot[] = [
 export const forVAsPage = {
   title: "For Virtual Assistants",
   subtitle: "Join our network. Get trained. Get placed.",
-  intro: `A&J isn’t only about serving clients—we’re committed to mentoring aspiring Virtual Assistants and providing real opportunities. If you’re in the Philippines, eager to learn, and ready to work with integrity and professionalism, we want to hear from you.`,
+  intro: `A&J isn\u2019t only about serving clients\u2014we\u2019re committed to mentoring aspiring Virtual Assistants and providing real opportunities. If you\u2019re in the Philippines, eager to learn, and ready to work with integrity and professionalism, we want to hear from you.`,
   whatWeLookFor: {
     title: "What we look for",
     items: [
@@ -632,8 +715,8 @@ export const forVAsPage = {
   applicationSteps: [
     "Submit the application form below with your background and interests.",
     "We review and may invite you for a short video call to discuss experience and goals.",
-    "If there’s a fit, we’ll walk you through our onboarding and training expectations.",
-    "When a client role matches your profile, we’ll introduce you and support the onboarding.",
+    "If there\u2019s a fit, we\u2019ll walk you through our onboarding and training expectations.",
+    "When a client role matches your profile, we\u2019ll introduce you and support the onboarding.",
     "We stay in touch for check-ins and ongoing development.",
   ],
   cta: {
@@ -650,21 +733,21 @@ export const forVAsPage = {
       message: "Why do you want to join A&J? What type of work are you most interested in?",
     },
     submitLabel: "Submit application",
-    successMessage: "Thank you. We’ve received your application and will be in touch.",
+    successMessage: "Thank you. We\u2019ve received your application and will be in touch.",
   },
 };
 
 // ——— CONTACT ———
 export const contactPage = {
   title: "Contact",
-  subtitle: "Tell us what you need. We’ll get back to you within 1–2 business days.",
+  subtitle: "Tell us what you need. We\u2019ll get back to you within 1\u20132 business days.",
   form: {
     nameLabel: "Name",
     emailLabel: "Email",
     companyLabel: "Company (optional)",
     messageLabel: "How can we help?",
     submitLabel: "Send message",
-    successMessage: "Thanks for reaching out. We’ll be in touch soon.",
+    successMessage: "Thanks for reaching out. We\u2019ll be in touch soon.",
   },
   calendly: {
     buttonText: "Book a free consultation",
@@ -686,7 +769,7 @@ export const bookingPage = {
     companyLabel: "Company (optional)",
     continueButtonText: "Choose date & time",
   },
-  /** Cal.com booking URL — embedded in iframe on /book. No trailing slash. */
+  /** Cal.com booking URL \u2014 embedded in iframe on /book. No trailing slash. */
   calComUrl: "https://cal.com/a-j-virtualassistanceservices-jdsqag/free-consultation",
 };
 
@@ -707,7 +790,7 @@ export const footer = {
     { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" as const },
     { label: "Facebook", href: "https://facebook.com", icon: "facebook" as const },
   ],
-  copyright: "© A&J Virtual Assistance Services. All rights reserved.",
+  copyright: "\u00A9 A&J Virtual Assistance Services. All rights reserved.",
 };
 
 // ——— SEO (per-page) ———
@@ -730,7 +813,7 @@ export const seo = {
   about: {
     title: "About Us",
     description:
-      "Our story, mission, and values. Why we mentor Filipino VAs and how we deliver reliable virtual assistance.",
+      "Our story, mission, and vision. How two dreamers built A&J to connect businesses with skilled Virtual Assistants and empower VA careers.",
   },
   testimonials: {
     title: "Testimonials",
@@ -745,7 +828,7 @@ export const seo = {
   contact: {
     title: "Contact",
     description:
-      "Get in touch for a free consultation. We’ll match you with the right VA for your needs.",
+      "Get in touch for a free consultation. We\u2019ll match you with the right VA for your needs.",
   },
   book: {
     title: "Book a consultation",
