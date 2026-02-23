@@ -67,7 +67,8 @@ export function AnimateIn({
 
   return (
     <Tag
-      ref={ref as never}
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- polymorphic Tag ref requires cast
+      ref={ref as any}
       className={cn(visible && animationClasses[animation], className)}
       style={style}
     >

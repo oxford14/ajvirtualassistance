@@ -29,9 +29,6 @@ export function Header() {
             className="rounded-sm relative z-10 mt-12"
             priority
           />
-          <span className="hidden sm:inline text-lg font-semibold text-primary hover:text-accent transition-colors duration-200">
-            A&J Virtual Assistance
-          </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
