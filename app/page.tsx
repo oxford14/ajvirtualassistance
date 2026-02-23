@@ -278,15 +278,15 @@ export default function HomePage() {
       </section>
 
       {/* Mission banner */}
-      <section className="py-16 md:py-24 px-4 md:px-6 bg-primary text-primary-foreground">
+      <section className="py-16 md:py-24 px-4 md:px-6 bg-primary text-white">
         <AnimateIn animation="fade-in-up" className="container mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-white">
             {home.missionBanner.title}
           </h2>
-          <p className="text-primary-foreground/90 mb-8 leading-relaxed">
+          <p className="text-white/95 mb-8 leading-relaxed">
             {home.missionBanner.description}
           </p>
-          <Button asChild variant="outline" size="lg" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10">
+          <Button asChild variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10">
             <Link href={home.missionBanner.ctaHref}>{home.missionBanner.cta}</Link>
           </Button>
         </AnimateIn>
