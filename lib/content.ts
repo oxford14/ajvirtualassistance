@@ -137,9 +137,9 @@ export const home: {
         icon: "user-check" as IconKey,
       },
       {
-        title: "Reliable Coverage",
+        title: "Consistent Support",
         description:
-          "Backup VAs included\u2014no call-outs, no gaps, no disruptions to your business.",
+          "Dedicated VA support with clear communication and dependable workflows for your practice.",
         icon: "clock" as IconKey,
       },
     ],
@@ -787,8 +787,8 @@ export const footer = {
     { label: "Contact", href: "/contact" },
   ],
   social: [
-    { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" as const },
-    { label: "Facebook", href: "https://facebook.com", icon: "facebook" as const },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/aiza-seno-bitoon-b959a0173/", icon: "linkedin" as const },
+    { label: "Facebook", href: "https://www.facebook.com/yourchoiceofva/", icon: "facebook" as const },
   ],
   copyright: "\u00A9 A&J Virtual Assistance Services. All rights reserved.",
 };
