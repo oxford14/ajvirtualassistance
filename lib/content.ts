@@ -754,9 +754,9 @@ export const contactPage = {
     url: "/book",
   },
   businessInfo: {
-    email: "hello@ajvirtualassist.com",
-    phone: "+63 XXX XXX XXXX",
-    address: "Manila, Philippines",
+    email: "info@yourchoiceofva.com",
+    phone: "+63 9266879280",
+    address: "Cebu, Philippines",
   },
 };
 
