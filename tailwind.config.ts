@@ -62,6 +62,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+        playfair: ["var(--font-playfair-display)", "serif"],
       },
     },
   },

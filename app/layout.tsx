@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
+
 import { Footer } from "@/components/Footer";
 import { BookModalProvider } from "@/components/BookModalProvider";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col relative">
+      <body className={`${playfair.variable} min-h-screen flex flex-col relative font-sans antialiased`}>
         {/* Logo as subtle full-page background */}
         <div
           className="fixed inset-0 z-0 bg-background"

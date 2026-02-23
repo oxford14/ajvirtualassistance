@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -19,16 +18,9 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link
           href="/"
-          className="flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md"
+          className="font-playfair text-lg md:text-xl font-semibold text-primary tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 rounded-md hover:text-accent transition-colors"
         >
-          <Image
-            src="/aandj-logo.jpeg"
-            alt="A&J Virtual Assistance Services"
-            width={120}
-            height={120}
-            className="rounded-sm relative z-10 mt-12"
-            priority
-          />
+          A&J Virtual Assistance Services
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
